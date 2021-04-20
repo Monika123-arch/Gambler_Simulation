@@ -9,13 +9,17 @@ class Gamblar{
     }
 
     checkResult(){
-        if (this.randomCheck() == constant.BETTING_AMOUNT){
-            let result = constant.STACK_AMOUNT + constant.BETTING_AMOUNT;
-            console.log(`Score: ${result}`);
-        }
-        else{
-            let result = constant.STACK_AMOUNT - constant.BETTING_AMOUNT;
-            console.log(`Score: ${result}`);
+        let result = constant.STACK_AMOUNT;
+        while (result > (constant.STACK_AMOUNT / 2) && result < (constant.STACK_AMOUNT + (constant.STACK_AMOUNT / 2))){
+            if (this.randomCheck() == constant.BETTING_AMOUNT){
+                result = result + constant.BETTING_AMOUNT;
+                // console.log(`Score: ${result}`);
+            }
+            else{
+                result = result - constant.BETTING_AMOUNT;
+                // console.log(`Score: ${result}`);
+            }
+            console.log(`Game Result ${result}`);
         }
     }
 }
